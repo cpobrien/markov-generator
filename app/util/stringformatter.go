@@ -2,7 +2,6 @@ package main
 
 import (
     "strings"
-    "fmt"
     "bytes"
 )
 var colors = map[string]string{
@@ -42,16 +41,3 @@ func (s StringFormatter) Format(text string, specifiers...string) string {
     return formattedString
 }
 
-func main() {
-    stringFormatter := StringFormatter{}
-
-    colors := []string{"red", "green", "yellow", "blue", "magenta", "cyan", "white"}
-    rawText := "Hello, %s!"
-    textToPrint := stringFormatter.Format(rawText, "me")
-
-    for i := 0; i < len(colors); i++ {
-        currentColor := colors[i]
-        coloredText := stringFormatter.ChangeColor(textToPrint, currentColor)
-        fmt.Println(coloredText)
-    }
-}
